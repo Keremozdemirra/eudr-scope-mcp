@@ -1,0 +1,16 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "target",
+   "celex",
+   "date",
+   "lang"
+  ]
+ },
+ "results": {
+  "distinct": false,
+  "ordered": true,
+  "bindings": []
+ }
+}

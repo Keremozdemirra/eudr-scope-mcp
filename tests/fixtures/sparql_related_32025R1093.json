@@ -1,0 +1,18 @@
+{
+ "head": {
+  "link": [],
+  "vars": [
+   "rel",
+   "celex",
+   "date",
+   "eif",
+   "title",
+   "adopted"
+  ]
+ },
+ "results": {
+  "distinct": false,
+  "ordered": true,
+  "bindings": []
+ }
+}
