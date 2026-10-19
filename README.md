@@ -40,20 +40,27 @@ answer treats it as data.
 
 ## Install
 
-MCP server for Claude Code (standard library only, Python 3.9+):
+Nothing is published to PyPI; every install runs straight from GitHub. MCP server for Claude Code
+(standard library only, Python 3.9+):
 
 ```bash
-claude mcp add eudr-scope -- uvx eudr-scope-mcp@0.1.0
+claude mcp add eudr-scope -- uvx --from git+https://github.com/Keremozdemirra/eudr-scope-mcp eudr-scope-mcp
 ```
 
 Command line:
 
 ```bash
-uvx eudr-scope-mcp scope 1801 00 00      # or: pipx run eudr-scope-mcp scope 1801 00 00
-uvx eudr-scope-mcp codes wood
-uvx eudr-scope-mcp dates sme
-uvx eudr-scope-mcp country VN
-uvx eudr-scope-mcp sources
+uvx --from git+https://github.com/Keremozdemirra/eudr-scope-mcp eudr-scope-mcp scope 1801 00 00
+uvx --from git+https://github.com/Keremozdemirra/eudr-scope-mcp eudr-scope-mcp codes wood
+uvx --from git+https://github.com/Keremozdemirra/eudr-scope-mcp eudr-scope-mcp dates sme
+uvx --from git+https://github.com/Keremozdemirra/eudr-scope-mcp eudr-scope-mcp country VN
+uvx --from git+https://github.com/Keremozdemirra/eudr-scope-mcp eudr-scope-mcp sources
+```
+
+To install it instead: `pipx install git+https://github.com/Keremozdemirra/eudr-scope-mcp` or `pip install git+https://github.com/Keremozdemirra/eudr-scope-mcp`. From a checkout:
+
+```bash
+git clone https://github.com/Keremozdemirra/eudr-scope-mcp && cd eudr-scope-mcp && pip install .
 ```
 
 Without a command, `eudr-scope-mcp` is the MCP server on stdio. `--json` prints the full answer;
@@ -123,7 +130,8 @@ Rebuild the snapshot (standard library; on 2026-09-24 it made 17 requests to pub
 
 ```bash
 python -m eudr_scope_mcp refresh --out data        # from a checkout
-uvx eudr-scope-mcp refresh --out ./eudr-data       # then: --data-dir ./eudr-data, or EUDR_SCOPE_DATA_DIR
+uvx --from git+https://github.com/Keremozdemirra/eudr-scope-mcp eudr-scope-mcp refresh --out ./eudr-data
+# then: --data-dir ./eudr-data, or EUDR_SCOPE_DATA_DIR
 ```
 
 Exit codes: 0, written and verified. 1, written, but an act that could not be applied or checked (an
